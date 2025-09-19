@@ -159,11 +159,41 @@ commit-push: commit push ## Commit and push changes (interactive message)
 # 	command1
 # 	command2
 # 	@echo "Action completed successfully!"
+
+# All targets that don't create files should be declared as .PHONY
+.PHONY: help install add init-site check audit clean start clear build serve version deploy fix-frontmatter upgrade update-prompts enable-submodule-status enable-recursive-push fix-submodule-detached-head commit-submodule-updates push-with-submodules commit push commit-push
+
+# Standard Makefile Variables (include these in all Makefiles)
+SHELL := /bin/bash
+MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 ```
 
 #### .PHONY Declarations
+**IMPORTANT**: The .PHONY declaration should be placed immediately after the agent header comment and should include ALL targets from the Makefile (both existing and new ones). This ensures proper Make behavior and prevents conflicts with files of the same name.
+
 ```makefile
-.PHONY: help update-prompts enable-submodule-status enable-recursive-push fix-submodule-detached-head commit-submodule-updates push-with-submodules commit push commit-push
+# All targets that don't create files should be declared as .PHONY
+.PHONY: help install add init-site check audit clean start clear build serve version deploy fix-frontmatter upgrade update-prompts enable-submodule-status enable-recursive-push fix-submodule-detached-head commit-submodule-updates push-with-submodules commit push commit-push
+```
+
+#### Standard Variables
+All Makefiles should include these standard variables for consistency and proper functionality:
+
+```makefile
+# Standard Makefile Variables (include these in all Makefiles)
+SHELL := /bin/bash
+MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+```
+
+**Variable Explanations:**
+- `SHELL := /bin/bash` - Ensures consistent shell behavior across different systems
+- `MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))` - Provides the absolute path to the directory containing the Makefile, useful for relative path operations
+
+**Additional Variables** (add as needed for your project):
+```makefile
+# Project-specific variables (examples from Docusaurus projects)
+SITENAME := your-site-name
+SITEROOT := ${MAKEFILE_DIR}/${SITENAME}
 ```
 
 #### Help Target
@@ -181,7 +211,13 @@ help: ## Show this help message
    git submodule add <submodule-url> prompts
    ```
 
-2. **Create Makefile** with all required targets and structure
+2. **Create Makefile** with all required targets and structure:
+   - Include agent header comment
+   - Add .PHONY declaration with ALL targets
+   - Include standard variables (SHELL, MAKEFILE_DIR)
+   - Add project-specific variables as needed
+   - Include all required submodule targets
+   - Add help target
 
 3. **Test functionality**:
    ```bash
@@ -196,11 +232,13 @@ help: ## Show this help message
    - Read the current structure and patterns
    - Identify existing targets and their purposes
    - Note the coding style and conventions
+   - Check for standard variables (SHELL, MAKEFILE_DIR)
 
 2. **Extend, don't replace**:
    - Add new targets following existing patterns
    - Preserve all original targets
    - Match the existing style and formatting
+   - Add standard variables if missing
 
 3. **Add missing targets**:
    - Only add targets that don't already exist
@@ -208,7 +246,8 @@ help: ## Show this help message
    - Follow the same indentation and formatting style
 
 4. **Update .PHONY declarations**:
-   - Add new targets to the .PHONY line
+   - Move .PHONY declaration to immediately after agent header
+   - Include ALL targets (existing + new) in .PHONY declaration
    - Maintain the existing format
 
 5. **Test thoroughly**:
