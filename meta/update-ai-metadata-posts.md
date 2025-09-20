@@ -14,7 +14,8 @@ You are working with a Docusaurus documentation site containing multiple blog po
 
 1. **Scan for AI Metadata Posts:**
    - Search through all markdown files in the documentation
-   - Look for the pattern: `<!-- AI METADATA - DO NOT REMOVE OR MODIFY -->`
+   - Look for the pattern: `<details><summary>🤖 AI Metadata (Click to expand)</summary>`
+   - Also check for legacy pattern: `<!-- AI METADATA - DO NOT REMOVE OR MODIFY -->`
    - Identify all posts containing this metadata
    - Create a list of files that need processing
 
@@ -41,8 +42,8 @@ You are working with a Docusaurus documentation site containing multiple blog po
 
 #### Step 1: Discovery
 ```
-1. SCAN_DIRECTORY: Search for files containing "<!-- AI METADATA - DO NOT REMOVE OR MODIFY -->"
-2. EXTRACT_METADATA: Parse the AI_UPDATE_INSTRUCTIONS from each file
+1. SCAN_DIRECTORY: Search for files containing "<details><summary>🤖 AI Metadata (Click to expand)</summary>" or legacy "<!-- AI METADATA - DO NOT REMOVE OR MODIFY -->"
+2. EXTRACT_METADATA: Parse the AI_UPDATE_INSTRUCTIONS from each file (YAML format in collapsible sections)
 3. CATEGORIZE_POSTS: Group posts by update type and dependencies
 4. CREATE_UPDATE_PLAN: Prioritize updates based on dependencies
 ```
@@ -107,6 +108,8 @@ When parsing AI metadata, look for these key sections:
 - **UPDATE_TRIGGERS**: Conditions that require updates
 - **FORMATTING_RULES**: How to maintain document structure
 - **UPDATE_FREQUENCY**: How often to check for updates
+
+**Note**: Modern metadata is in YAML format within collapsible sections. Legacy metadata may still use HTML comments.
 
 ### Quality Checklist
 

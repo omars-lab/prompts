@@ -41,13 +41,17 @@ The blog post is located in a Docusaurus documentation site and contains informa
    - What changes should trigger an update
    - How to detect if an update is needed
 
-3. **Format the metadata section** as:
+3. **Format the metadata section** as a collapsible section:
    ```html
-   <!-- AI METADATA - DO NOT REMOVE OR MODIFY -->
-   <!-- 
+   <details>
+   <summary>🤖 AI Metadata (Click to expand)</summary>
+   
+   ```yaml
+   # AI METADATA - DO NOT REMOVE OR MODIFY
    [Comprehensive instructions here]
-   -->
-   <!-- END AI METADATA -->
+   ```
+   
+   </details>
    ```
 
 4. **Place the metadata** at the end of the blog post, just before any closing elements
@@ -55,41 +59,45 @@ The blog post is located in a Docusaurus documentation site and contains informa
 ### Metadata Section Template
 
 ```html
-<!-- AI METADATA - DO NOT REMOVE OR MODIFY -->
-<!-- 
-AI_UPDATE_INSTRUCTIONS:
-This document should be automatically updated when [specific conditions]. 
-Follow these steps:
+<details>
+<summary>🤖 AI Metadata (Click to expand)</summary>
 
-1. SCAN_SOURCES: [What to scan and where]
-2. EXTRACT_DATA: [What data to extract and how]
-3. UPDATE_CONTENT: [How to update the content]
-4. VERIFY_CHANGES: [How to verify updates are correct]
-5. MAINTAIN_FORMAT: [How to preserve formatting and structure]
+```yaml
+# AI METADATA - DO NOT REMOVE OR MODIFY
+# AI_UPDATE_INSTRUCTIONS:
+# This document should be automatically updated when [specific conditions]. 
+# Follow these steps:
+#
+# 1. SCAN_SOURCES: [What to scan and where]
+# 2. EXTRACT_DATA: [What data to extract and how]
+# 3. UPDATE_CONTENT: [How to update the content]
+# 4. VERIFY_CHANGES: [How to verify updates are correct]
+# 5. MAINTAIN_FORMAT: [How to preserve formatting and structure]
+#
+# CONTENT_PATTERNS:
+# - [Pattern 1]: [Description and regex if applicable]
+# - [Pattern 2]: [Description and regex if applicable]
+# - [Pattern 3]: [Description and regex if applicable]
+#
+# DATA_SOURCES:
+# - [Source 1]: [Path and description]
+# - [Source 2]: [Path and description]
+# - [Source 3]: [Path and description]
+#
+# UPDATE_TRIGGERS:
+# - [Trigger 1]: [When this should trigger an update]
+# - [Trigger 2]: [When this should trigger an update]
+# - [Trigger 3]: [When this should trigger an update]
+#
+# FORMATTING_RULES:
+# - [Rule 1]: [How to maintain consistent formatting]
+# - [Rule 2]: [How to maintain consistent formatting]
+# - [Rule 3]: [How to maintain consistent formatting]
+#
+# UPDATE_FREQUENCY: [How often this should be checked/updated]
+```
 
-CONTENT_PATTERNS:
-- [Pattern 1]: [Description and regex if applicable]
-- [Pattern 2]: [Description and regex if applicable]
-- [Pattern 3]: [Description and regex if applicable]
-
-DATA_SOURCES:
-- [Source 1]: [Path and description]
-- [Source 2]: [Path and description]
-- [Source 3]: [Path and description]
-
-UPDATE_TRIGGERS:
-- [Trigger 1]: [When this should trigger an update]
-- [Trigger 2]: [When this should trigger an update]
-- [Trigger 3]: [When this should trigger an update]
-
-FORMATTING_RULES:
-- [Rule 1]: [How to maintain consistent formatting]
-- [Rule 2]: [How to maintain consistent formatting]
-- [Rule 3]: [How to maintain consistent formatting]
-
-UPDATE_FREQUENCY: [How often this should be checked/updated]
--->
-<!-- END AI METADATA -->
+</details>
 ```
 
 ### Examples of Dynamic Content to Track
@@ -111,13 +119,13 @@ Before finalizing the metadata section, ensure:
 - [ ] Data sources are accurately specified
 - [ ] Update triggers are well-defined
 - [ ] Formatting rules preserve document structure
-- [ ] Metadata is hidden from human readers
+- [ ] Metadata is hidden from human readers (collapsed by default)
 - [ ] Instructions are comprehensive enough for AI agents
 - [ ] Examples are provided where helpful
 
 ### Output
 
-Provide the complete AI metadata section that should be injected into the blog post, formatted as HTML comments and ready to be inserted at the end of the document.
+Provide the complete AI metadata section that should be injected into the blog post, formatted as a collapsible section and ready to be inserted at the end of the document.
 
 ## Example Usage
 
