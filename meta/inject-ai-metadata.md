@@ -41,6 +41,29 @@ The blog post is located in a Docusaurus documentation site and contains informa
    - What changes should trigger an update
    - How to detect if an update is needed
 
+   **E. Iteration History (Optional but Recommended):**
+   - Document significant changes and improvements made to the content
+   - Include dates and descriptions of major iterations
+   - Track evolution of the document structure and approach
+   - Note key decisions and rationale for future reference
+   - **Summarize all contributions that happen on the same day** into a single comprehensive entry
+   - Use descriptive titles for daily summaries (e.g., "Complete feature implementation and optimization")
+
+   **F. Evaluation Criteria (For Content Quality Assessment):**
+   - Define specific criteria for evaluating content quality and completeness
+   - Include metrics for measuring success (e.g., comprehensiveness, accuracy, usability)
+   - Establish standards for content structure and formatting
+   - Set benchmarks for user experience and navigation
+   - Define criteria for technical depth and business relevance (where applicable)
+
+   **G. Content Feedback Loop (For Continuous Improvement):**
+   - Establish process for evaluating content against defined criteria
+   - Identify gaps in coverage or quality issues
+   - Prioritize improvements based on impact and user needs
+   - Ensure consistency with existing format and quality standards
+   - Update evaluation criteria based on new insights and feedback
+   - Document rationale for content placement and prioritization decisions
+
 3. **Format the metadata section** as a collapsible section:
    ```html
    <details>
@@ -94,6 +117,25 @@ The blog post is located in a Docusaurus documentation site and contains informa
 # - [Rule 2]: [How to maintain consistent formatting]
 # - [Rule 3]: [How to maintain consistent formatting]
 #
+# ITERATION_HISTORY (Optional but Recommended):
+# - [Date]: [Descriptive title] - [Comprehensive summary of all changes made on this date]
+# - [Date]: [Descriptive title] - [Comprehensive summary of all changes made on this date]
+# - [Date]: [Descriptive title] - [Comprehensive summary of all changes made on this date]
+#
+# EVALUATION_CRITERIA (For Content Quality Assessment):
+# 1. [CRITERIA_NAME]: [Description of what to evaluate and how to measure it]
+# 2. [CRITERIA_NAME]: [Description of what to evaluate and how to measure it]
+# 3. [CRITERIA_NAME]: [Description of what to evaluate and how to measure it]
+# [Add more criteria as needed for the specific content type]
+#
+# CONTENT_FEEDBACK_LOOP (For Continuous Improvement):
+# - Evaluate content against all defined criteria before making major edits
+# - Identify gaps in coverage or quality issues
+# - Prioritize improvements based on impact and user needs
+# - Ensure new content maintains consistency with existing format and quality standards
+# - Update evaluation criteria based on new insights and user feedback
+# - Document rationale for content placement and prioritization decisions
+#
 # UPDATE_FREQUENCY: [How often this should be checked/updated]
 ```
 
@@ -122,6 +164,29 @@ Before finalizing the metadata section, ensure:
 - [ ] Metadata is hidden from human readers (collapsed by default)
 - [ ] Instructions are comprehensive enough for AI agents
 - [ ] Examples are provided where helpful
+- [ ] Evaluation criteria are defined for content quality assessment
+- [ ] Content feedback loop process is established for continuous improvement
+
+### Evaluation Criteria Usage Guidelines
+
+**Always include evaluation criteria when:**
+- Creating content that will be iteratively improved (story banks, interview prep)
+- Building documents with specific quality standards (technical documentation, portfolios)
+- Developing content with multiple stakeholders or use cases
+- Creating resources that need to maintain consistency over time
+
+**Use the content feedback loop when:**
+- Making major edits to existing content
+- Adding new sections or restructuring documents
+- Updating content based on user feedback or new requirements
+- Ensuring content meets established quality standards
+
+**Evaluation criteria should include:**
+- Comprehensiveness and coverage metrics
+- Quality standards and formatting requirements
+- User experience and navigation benchmarks
+- Technical depth and business relevance measures (where applicable)
+- Consistency and alignment with established patterns
 
 ### Output
 
