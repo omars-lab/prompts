@@ -1,5 +1,7 @@
 # Portfolio Fix & Troubleshooting Guide
 
+*Last Updated: December 2024*
+
 ## Common Issues & Solutions
 
 ### 1. Development Server Issues
@@ -345,6 +347,170 @@ npm install
 npm start
 ```
 
+### 6. Carousel & Project Management Issues
+
+#### Problem: Project cards not properly sized or spaced
+**Symptoms:**
+- Cards have inconsistent dimensions
+- Text overflows card boundaries
+- Buttons are hard to see against white background
+- Poor spacing between elements
+
+**Solutions:**
+```css
+/* Fixed card dimensions */
+.project-card {
+  height: 350px;
+  width: 380px;
+  overflow: hidden;
+}
+
+/* Text truncation for titles */
+.project-card h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Multi-line text truncation for descriptions */
+.project-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+/* Button visibility improvements */
+.project-links a {
+  color: #ffffff;
+  background: #1e40af;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+}
+
+/* Vertical button stacking */
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+```
+
+#### Problem: Carousel navigation and animation issues
+**Symptoms:**
+- Cards don't animate smoothly
+- Navigation buttons don't work properly
+- Cards overlap or misalign
+
+**Solutions:**
+```css
+/* Carousel container sizing */
+.carousel-container {
+  height: 450px; /* Adjust for card size */
+}
+
+/* Card positioning with proper transforms */
+.project-card.prev-card {
+  transform: translateX(-200px) scale(0.8);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.project-card.active-card {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+
+.project-card.next-card {
+  transform: translateX(200px) scale(0.8);
+  opacity: 0.6;
+  z-index: 1;
+}
+```
+
+#### Problem: Project content management
+**Symptoms:**
+- Too many projects overwhelming the carousel
+- Inconsistent project data structure
+- Missing or broken links
+
+**Solutions:**
+```javascript
+// Consistent project structure
+const projects = [
+  {
+    title: "Project Name",
+    description: "Brief description (keep under 4 lines)",
+    githubUrl: "https://github.com/user/repo", // or null
+    liveUrl: "https://example.com" // or null
+  }
+];
+
+// Button order: GitHub first, Live second
+{project.githubUrl && (
+  <a href={project.githubUrl}>View on GitHub</a>
+)}
+{project.liveUrl && (
+  <a href={project.liveUrl}>View Live</a>
+)}
+```
+
+### 7. Component Architecture & File Organization
+
+#### Problem: Large, unwieldy App.js file
+**Symptoms:**
+- App.js contains multiple components
+- Hard to maintain and debug
+- Poor separation of concerns
+
+**Solutions:**
+```javascript
+// Split into separate files
+// src/components/SimplifiedPortfolio.js
+// src/components/OriginalPortfolio.js
+
+// Import in App.js
+import SimplifiedPortfolio from './components/SimplifiedPortfolio';
+import OriginalPortfolio from './components/OriginalPortfolio';
+
+// Keep App.js minimal
+function Portfolio(props) {
+  const [showOriginalPortfolio, setShowOriginalPortfolio] = useState(false);
+  
+  if (showOriginalPortfolio) {
+    return <OriginalPortfolio {...props} onBackToSimplified={() => setShowOriginalPortfolio(false)} />;
+  }
+  
+  return <SimplifiedPortfolio onShowOriginal={() => setShowOriginalPortfolio(true)} />;
+}
+```
+
+#### Problem: CSS class conflicts and specificity issues
+**Symptoms:**
+- Styles not applying correctly
+- Components interfering with each other
+- Hard to debug styling issues
+
+**Solutions:**
+```css
+/* Use specific class names */
+.project-card { /* not just .card */ }
+.carousel-container { /* not just .container */ }
+.project-links { /* not just .links */ }
+
+/* Use CSS custom properties for consistency */
+:root {
+  --primary-blue: #1e40af;
+  --secondary-blue: #3b82f6;
+  --light-blue: #dbeafe;
+}
+```
+
 ## Best Practices
 
 1. **Always test changes in browser immediately**
@@ -355,3 +521,10 @@ npm start
 6. **Keep color scheme consistent**
 7. **Use progressive disclosure for complex content**
 8. **Optimize for both desktop and mobile**
+9. **Maintain consistent card dimensions in carousels**
+10. **Use text truncation to prevent layout breaks**
+11. **Ensure high contrast for button text visibility**
+12. **Stack buttons vertically for better mobile experience**
+13. **Keep project arrays focused and manageable (3-5 items max)**
+14. **Use proper component separation for maintainability**
+15. **Test carousel animations and navigation thoroughly**
