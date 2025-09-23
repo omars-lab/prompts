@@ -41,7 +41,7 @@ The blog post is located in a Docusaurus documentation site and contains informa
    - What changes should trigger an update
    - How to detect if an update is needed
 
-   **E. Iteration History (Optional but Recommended):**
+   **E. Iteration History:**
    - Document significant changes and improvements made to the content
    - Include dates and descriptions of major iterations
    - Track evolution of the document structure and approach
@@ -117,7 +117,7 @@ The blog post is located in a Docusaurus documentation site and contains informa
 # - [Rule 2]: [How to maintain consistent formatting]
 # - [Rule 3]: [How to maintain consistent formatting]
 #
-# ITERATION_HISTORY (Optional but Recommended):
+# ITERATION_HISTORY:
 # - [Date]: [Descriptive title] - [Comprehensive summary of all changes made on this date]
 # - [Date]: [Descriptive title] - [Comprehensive summary of all changes made on this date]
 # - [Date]: [Descriptive title] - [Comprehensive summary of all changes made on this date]
