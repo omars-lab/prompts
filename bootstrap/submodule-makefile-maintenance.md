@@ -208,7 +208,7 @@ help: ## Show this help message
 ### For New Repositories
 1. **Add prompts submodule**:
    ```bash
-   git submodule add <submodule-url> prompts
+   git submodule add git@github.com:omars-lab/prompts.git prompts
    ```
 
 2. **Create Makefile** with all required targets and structure:
