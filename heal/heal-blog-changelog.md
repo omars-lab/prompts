@@ -327,7 +327,6 @@ make build
 
 - **Naming Conventions**: See `NAMING_CONVENTIONS.md` for changelog entry naming
 - **Changelog System Documentation**: See `docs/6-techniques/3-blogging-techniques/changelog-system.md`
-- **Sync Plan**: See `docs/6-techniques/3-blogging-techniques/changelog-sync-with-git-plan.md`
 - **Extract Script**: `bytesofpurpose-blog/scripts/extract-changelog-commits.js`
 
 ## Example Workflow
