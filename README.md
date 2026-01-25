@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Prompts Catalog
 
 This repository is a curated catalog of reusable prompts organized by intent. Each directory groups focused prompts you can copy, adapt, or compose into your workflows.
@@ -63,4 +64,3 @@ This catalog pairs well with automation/agent tooling such as tidy-mcp:
 - Add new prompts under the most fitting directory (or propose a new one)
 - Keep prompts concise, action-oriented, and easy to reuse
 - Follow existing formatting and naming patterns
-
