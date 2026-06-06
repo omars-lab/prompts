@@ -33,6 +33,8 @@ Full plan + audit: [`.claude/plans/tender-dreaming-dolphin.md`](.claude/plans/te
 
 ## Dropped — not migrated (with reason)
 
+> For the full reasoning behind each drop — grouped by *why* (redundant / project-bound / stub / one-off) and what to do if you disagree — see **[NOT-MIGRATED.md](NOT-MIGRATED.md)**. The table below is the quick index.
+
 View any dropped file at [`omars-lab/prompts@59e9b39`](https://github.com/omars-lab/prompts/tree/59e9b39).
 
 | Prompt | Why dropped |
