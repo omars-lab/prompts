@@ -115,4 +115,11 @@ Plan: [`.claude/plans/linked-sleeping-hanrahan.md`](.claude/plans/linked-sleepin
 
 ## Human review (un-classifiable paragraphs)
 
-_None yet. Any paragraph that cannot be confidently classified during reconciliation is listed here with its `file:linenums` instead of being deleted or guessed._
+Reconciliation merged with upstream `origin/main` (commits `cabff35..dd51eaf`), which **added/changed prompts after the original audit**. These are out of the original 24-file scope and need their own reconciliation pass — they were **kept** (not deleted), pending review:
+
+- `heal/fix-readmes.md` — I had deleted the 1-line stub (PROJECT-BOUND); upstream `ed3db9e` replaced it with a substantial 209-line **folder-README-as-navigation-index** authoring method (frontmatter + intent + distinction-from-siblings + "What You'll Find Here" + recursive child-README linking + quality checklist). Conflict resolved by **keeping the upstream version**. NOT clearly covered: `manage-docs/improve-docs` audits/consolidates docs but doesn't prescribe this README-index pattern; `fix-doc-links` covers `_category_.json` sidebar files, not prose index READMEs. → candidate to migrate into `code-quality-manager:manage-docs` (or a new `author-readme-index` sub-skill); examples are Docusaurus-specific and need generalizing.
+- `author/data-structure-mental-model-guide.md` — new upstream prompt, unreviewed.
+- `bootstrap/blog-posts.md` — new upstream prompt, unreviewed.
+- `heal/heal-blog-changelog.md` — new upstream prompt, unreviewed.
+
+Note: upstream `dd51eaf` independently deleted `refactor/role-refactoring-prompt.md` ("moved to a skill") — agrees with this pass's deletion.

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Prompts Catalog
 
 > **📦 Migrated.** This catalog has been migrated into the **oeid-claude-plugin-marketplace** as plugins and skills. The high-value prompts are now generalized, reusable skills; redundant/one-off/stub prompts were retired. See **[MIGRATED.md](MIGRATED.md)** for the full map (where each prompt went, or why it was dropped), with links to both the source files and their destination skills.
@@ -67,4 +68,3 @@ This catalog pairs well with automation/agent tooling such as tidy-mcp:
 - Add new prompts under the most fitting directory (or propose a new one)
 - Keep prompts concise, action-oriented, and easy to reuse
 - Follow existing formatting and naming patterns
-
