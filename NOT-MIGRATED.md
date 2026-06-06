@@ -19,6 +19,8 @@ A prompt failed that bar — and was dropped — for one of four reasons:
 
 Of 39 prompts: **11 migrated**, **4 merged/folded**, **24 dropped**. The large drop count is the point — the marketplace already covered most of this catalog, and the audit (after a course-correction) treated "an existing skill is better" as a reason to drop, not to merge. Nothing is lost: every dropped file is preserved in git and linked from MIGRATED.md.
 
+> **Reconciliation pass (finer, paragraph-level).** The 24 drops below were originally judged **at the file level**. A second pass then walked each dropped file **paragraph-by-paragraph** against the covering skills, recording a verdict for every paragraph in **[RECONCILE-LEDGER.md](RECONCILE-LEDGER.md)** (covered / project-bound / migrated). Outcome: **every paragraph was already covered or project-bound, except one** — the non-conforming-frontmatter map in `heal/fix-frontmatter.md` (lines 165-220), which was folded into `document-co-author:import-structured-doc` (now listed in MIGRATED.md's Merged/folded table). All 24 files have been **removed from this repo**; git history + the ledger preserve the full trail. The per-reason notes below still explain *why* each file was dropped.
+
 ---
 
 ## REDUNDANT — an existing skill already does it (better)

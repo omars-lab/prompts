@@ -6,7 +6,9 @@ Full plan + audit: [`.claude/plans/tender-dreaming-dolphin.md`](.claude/plans/te
 
 **Link conventions**
 - **Source** links point at the last commit where the file existed in this repo: [`omars-lab/prompts@59e9b39`](https://github.com/omars-lab/prompts/tree/59e9b39).
-- **Destination** links point at the migration commit in the marketplace: [`omars-lab/claude-plugin-marketplace@c5a6e90`](https://github.com/omars-lab/claude-plugin-marketplace/commit/c5a6e90) (live once that branch is pushed to GitHub).
+- **Destination** links point at the marketplace mirror's stable `main` branch: [`omars-lab/claude-plugin-marketplace@main`](https://github.com/omars-lab/claude-plugin-marketplace/tree/main). (The mirror author-rewrites commit SHAs on each `make sync-remote`, so per-commit permalinks drift; `main`-branch paths stay stable.)
+
+A second, finer reconciliation pass walked every **dropped** file paragraph-by-paragraph against the existing skills. Its per-paragraph audit trail (each paragraph → covered / project-bound / migrated) lives in **[RECONCILE-LEDGER.md](RECONCILE-LEDGER.md)**; all dropped files have since been removed from this repo (git history preserves them).
 
 ---
 
@@ -14,22 +16,23 @@ Full plan + audit: [`.claude/plans/tender-dreaming-dolphin.md`](.claude/plans/te
 
 | Source prompt | → Destination skill |
 |---|---|
-| [inject-ai-metadata.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/inject-ai-metadata.md) + [update-ai-metadata-posts.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/update-ai-metadata-posts.md) | [`document-co-author:manage-ai-metadata`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/document-co-author/skills/manage-ai-metadata/SKILL.md) |
-| [inject-metrics-tracking.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/inject-metrics-tracking.md) + [prompt-metrics-emission-rules.md](https://github.com/omars-lab/prompts/blob/59e9b39/rules/prompt-metrics-emission-rules.md) | [`claude-manager:inject-prompt-metrics`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/claude-manager/skills/inject-prompt-metrics/SKILL.md) |
-| [meta-content-organizer-creator.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/meta-content-organizer-creator.md) | [`knowledge-manager:meta-content-organizer`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/knowledge-manager/skills/meta-content-organizer/SKILL.md) |
-| [analyze-sql.md](https://github.com/omars-lab/prompts/blob/59e9b39/analyze/analyze-sql.md) | [`architecture-manager:analyze-sql`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/architecture-manager/skills/analyze-sql/SKILL.md) |
-| [create-ai-agents-guide.md](https://github.com/omars-lab/prompts/blob/59e9b39/bootstrap/create-ai-agents-guide.md) | [`code-quality-manager:create-ai-agents-guide`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/code-quality-manager/skills/create-ai-agents-guide/SKILL.md) |
-| [fix-broken-docusaurus-links.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-broken-docusaurus-links.md) + [fix-category-files.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-category-files.md) + [fix-figma-link.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-figma-link.md) | [`code-repository-manager:fix-doc-links`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/code-repository-manager/skills/fix-doc-links/SKILL.md) |
-| [import-habit.md](https://github.com/omars-lab/prompts/blob/59e9b39/refactor/import-habit.md) | [`document-co-author:import-structured-doc`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/document-co-author/skills/import-structured-doc/SKILL.md) |
+| [inject-ai-metadata.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/inject-ai-metadata.md) + [update-ai-metadata-posts.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/update-ai-metadata-posts.md) | [`document-co-author:manage-ai-metadata`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/skills/manage-ai-metadata/SKILL.md) |
+| [inject-metrics-tracking.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/inject-metrics-tracking.md) + [prompt-metrics-emission-rules.md](https://github.com/omars-lab/prompts/blob/59e9b39/rules/prompt-metrics-emission-rules.md) | [`claude-manager:inject-prompt-metrics`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/claude-manager/skills/inject-prompt-metrics/SKILL.md) |
+| [meta-content-organizer-creator.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/meta-content-organizer-creator.md) | [`knowledge-manager:meta-content-organizer`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/knowledge-manager/skills/meta-content-organizer/SKILL.md) |
+| [analyze-sql.md](https://github.com/omars-lab/prompts/blob/59e9b39/analyze/analyze-sql.md) | [`architecture-manager:analyze-sql`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/architecture-manager/skills/analyze-sql/SKILL.md) |
+| [create-ai-agents-guide.md](https://github.com/omars-lab/prompts/blob/59e9b39/bootstrap/create-ai-agents-guide.md) | [`code-quality-manager:create-ai-agents-guide`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/code-quality-manager/skills/create-ai-agents-guide/SKILL.md) |
+| [fix-broken-docusaurus-links.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-broken-docusaurus-links.md) + [fix-category-files.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-category-files.md) + [fix-figma-link.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-figma-link.md) | [`code-repository-manager:fix-doc-links`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/code-repository-manager/skills/fix-doc-links/SKILL.md) |
+| [import-habit.md](https://github.com/omars-lab/prompts/blob/59e9b39/refactor/import-habit.md) | [`document-co-author:import-structured-doc`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/skills/import-structured-doc/SKILL.md) |
 
 ## Merged / folded into an existing skill or guide
 
 | Source prompt | → Folded into |
 |---|---|
-| [plantuml-diagram.md](https://github.com/omars-lab/prompts/blob/59e9b39/author/plantuml-diagram.md) | [`architecture-manager:generate-diagram`](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/architecture-manager/skills/generate-diagram/SKILL.md) — AWS-icons + MDX-embed sections |
-| [submodule-makefile-maintenance.md](https://github.com/omars-lab/prompts/blob/59e9b39/bootstrap/submodule-makefile-maintenance.md) | [`manage-makefiles` guides/git-submodules.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/code-quality-manager/skills/manage-makefiles/guides/git-submodules.md) |
-| [prompt-maturity.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/prompt-maturity.md) | [`evaluate-skill` guides/maturity-dimensions.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/claude-manager/skills/manage-skills/evaluate-skill/guides/maturity-dimensions.md) |
-| [author-prompt-post.md](https://github.com/omars-lab/prompts/blob/59e9b39/author/author-prompt-post.md) | [`document-co-author` guides/blog-post-structure.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/c5a6e90/plugins/document-co-author/guides/blog-post-structure.md) |
+| [plantuml-diagram.md](https://github.com/omars-lab/prompts/blob/59e9b39/author/plantuml-diagram.md) | [`architecture-manager:generate-diagram`](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/architecture-manager/skills/generate-diagram/SKILL.md) — AWS-icons + MDX-embed sections |
+| [submodule-makefile-maintenance.md](https://github.com/omars-lab/prompts/blob/59e9b39/bootstrap/submodule-makefile-maintenance.md) | [`manage-makefiles` guides/git-submodules.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/code-quality-manager/skills/manage-makefiles/guides/git-submodules.md) |
+| [prompt-maturity.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/prompt-maturity.md) | [`evaluate-skill` guides/maturity-dimensions.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/claude-manager/skills/manage-skills/evaluate-skill/guides/maturity-dimensions.md) |
+| [author-prompt-post.md](https://github.com/omars-lab/prompts/blob/59e9b39/author/author-prompt-post.md) | [`document-co-author` guides/blog-post-structure.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/guides/blog-post-structure.md) |
+| [heal/fix-frontmatter.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-frontmatter.md) (lines 165-220 only — the non-conforming frontmatter map) | [`import-structured-doc` guides/section-template.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/skills/import-structured-doc/guides/section-template.md) — "Salvaging legacy / non-conforming frontmatter" (reconciliation pass; rest of the file was project-bound chores) |
 
 ## Dropped — not migrated (with reason)
 
@@ -41,7 +44,7 @@ View any dropped file at [`omars-lab/prompts@59e9b39`](https://github.com/omars-
 |---|---|
 | [analyze/review-code.md](https://github.com/omars-lab/prompts/blob/59e9b39/analyze/review-code.md) | A single review transcript; `code-quality-manager:poke-holes` is a complete method. |
 | [analyze/deep-dive-into-code.md](https://github.com/omars-lab/prompts/blob/59e9b39/analyze/deep-dive-into-code.md) | Stub — bare internal link. |
-| [heal/fix-frontmatter.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-frontmatter.md) | One-project frontmatter chore; no transferable logic. |
+| [heal/fix-frontmatter.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-frontmatter.md) | Mostly one-project frontmatter chore; the one transferable paragraph (non-conforming frontmatter map) was folded into `import-structured-doc` — see the Merged/folded table. |
 | [heal/fix-readme-primary.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-readme-primary.md), [heal/fix-readmes.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-readmes.md) | One-project README chores. |
 | [refactor/role-refactoring-prompt.md](https://github.com/omars-lab/prompts/blob/59e9b39/refactor/role-refactoring-prompt.md) | `role-manager:structure-role` supersedes it. |
 | [brainstorm/ask-me.md](https://github.com/omars-lab/prompts/blob/59e9b39/brainstorm/ask-me.md) | `experiment-manager:asking-what-if` already realizes the method. |
