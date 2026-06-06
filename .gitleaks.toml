@@ -1,0 +1,4 @@
+# Gitleaks configuration for the prompts repo.
+# Extends the built-in default ruleset.
+[extend]
+useDefault = true

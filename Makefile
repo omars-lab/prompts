@@ -44,15 +44,34 @@ sync-to-noteplan:
 	rsync -av --delete "$(ROOT_DIR)/organize/" "$$TARGET_DIR/organize/"; \
 	echo "✅ Organize folder synced successfully to NotePlan!"
 
+# Point git at .githooks/ so the secret-scanning hooks are active (run once per clone)
+setup-hooks:
+	@git config core.hooksPath .githooks
+	@chmod +x .githooks/* 2>/dev/null || true
+	@echo "✓ git core.hooksPath → .githooks (pre-commit + pre-push: secret scan)"
+
+# Scan the whole repo for leaked secrets (gitleaks)
+secret-scan:
+	@command -v gitleaks >/dev/null 2>&1 || { echo "gitleaks not installed — brew install gitleaks"; exit 1; }
+	gitleaks detect --source . --redact --verbose
+
+# Scan only staged changes for secrets (pre-commit style)
+secret-scan-staged:
+	@command -v gitleaks >/dev/null 2>&1 || { echo "gitleaks not installed — brew install gitleaks"; exit 1; }
+	gitleaks protect --staged --redact --verbose
+
 # Show help
 help:
 	@echo "Available targets:"
 	@echo "  copy-from-noteplan      - Copy all .md files from NotePlan 📝 Prompts to project root"
 	@echo "  sync-to-noteplan - Sync organize folder recursively to NotePlan 📝 Prompts"
+	@echo "  setup-hooks            - Activate secret-scanning git hooks (run once)"
+	@echo "  secret-scan            - Scan whole repo for leaked secrets"
+	@echo "  secret-scan-staged     - Scan staged changes for secrets"
 	@echo "  help                   - Show this help message"
 	@echo ""
 	@echo "Configuration:"
 	@echo "  Current user: $(CURRENT_USER)"
 	@echo "  Project root directory: $(ROOT_DIR)"
 
-.PHONY: copy-from-noteplan sync-to-noteplan help
+.PHONY: copy-from-noteplan sync-to-noteplan setup-hooks secret-scan secret-scan-staged help
