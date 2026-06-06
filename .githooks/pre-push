@@ -1,0 +1,15 @@
+#!/bin/sh
+# === Secret scan ===
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo ""
+    echo "ERROR: gitleaks is not installed. Install with: brew install gitleaks"
+    echo "Pushes are blocked until gitleaks is available."
+    exit 1
+fi
+echo "Running full secret scan before push..."
+if ! gitleaks detect --source . --redact --verbose; then
+    echo ""
+    echo "ERROR: Secret scan failed. Push blocked."
+    exit 1
+fi
+exit 0
