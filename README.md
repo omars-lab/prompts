@@ -1,6 +1,10 @@
 ## Prompts Catalog
 
-This repository is a curated catalog of reusable prompts organized by intent. Each directory groups focused prompts you can copy, adapt, or compose into your workflows.
+> **📦 Migrated.** This catalog has been migrated into the **oeid-claude-plugin-marketplace** as plugins and skills. The high-value prompts are now generalized, reusable skills; redundant/one-off/stub prompts were retired. See **[MIGRATED.md](MIGRATED.md)** for the full map (where each prompt went, or why it was dropped), with links to both the source files and their destination skills.
+>
+> Prefer installing the relevant plugin over copying a prompt. The remaining files below are kept for reference; migrated ones have been removed (recoverable via git history and linked from MIGRATED.md).
+
+This repository was a curated catalog of reusable prompts organized by intent. Each directory groups focused prompts you can copy, adapt, or compose into your workflows.
 
 ### Catalog
 
