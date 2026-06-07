@@ -113,13 +113,27 @@ Plan: [`.claude/plans/linked-sleeping-hanrahan.md`](.claude/plans/linked-sleepin
 
 ---
 
-## Human review (un-classifiable paragraphs)
+## Second pass — the 4 post-audit upstream prompts
 
-Reconciliation merged with upstream `origin/main` (commits `cabff35..dd51eaf`), which **added/changed prompts after the original audit**. These are out of the original 24-file scope and need their own reconciliation pass — they were **kept** (not deleted), pending review:
+Reconciliation merged with upstream `origin/main` (commits `cabff35..dd51eaf`), which **added/changed prompts after the original audit**. These were out of the original 24-file scope and kept pending review. They have now been walked with the same paragraph-level method:
 
-- `heal/fix-readmes.md` — I had deleted the 1-line stub (PROJECT-BOUND); upstream `ed3db9e` replaced it with a substantial 209-line **folder-README-as-navigation-index** authoring method (frontmatter + intent + distinction-from-siblings + "What You'll Find Here" + recursive child-README linking + quality checklist). Conflict resolved by **keeping the upstream version**. NOT clearly covered: `manage-docs/improve-docs` audits/consolidates docs but doesn't prescribe this README-index pattern; `fix-doc-links` covers `_category_.json` sidebar files, not prose index READMEs. → candidate to migrate into `code-quality-manager:manage-docs` (or a new `author-readme-index` sub-skill); examples are Docusaurus-specific and need generalizing.
-- `author/data-structure-mental-model-guide.md` — new upstream prompt, unreviewed.
-- `bootstrap/blog-posts.md` — new upstream prompt, unreviewed.
-- `heal/heal-blog-changelog.md` — new upstream prompt, unreviewed.
+### heal/fix-readmes.md
+- [x] ⚠️ heal/fix-readmes.md:1-209 — **MIGRATED** → `document-co-author:import-structured-doc` `guides/readme-index-template.md` (new generalized "folder-README-as-navigation-index" template: intent → sibling-distinction → "What You'll Find Here" → linked document/child-folder index, applied recursively). The whole 209-line method is a transferable authoring pattern; upstream `ed3db9e` had replaced the old 1-line stub with it. Confirmed NOT covered: `code-quality-manager:manage-docs` audits/consolidates docs but doesn't prescribe this index pattern; `code-repository-manager:fix-doc-links` repairs `_category_.json` sidebar files, not prose index READMEs. Home chosen: `document-co-author` (the document-authoring plugin, which already owns frontmatter/section guides), not `manage-docs` (an audit/consolidate skill). Docusaurus-specific slug/link examples generalized to "match the target site generator". The hardcoded `bytesofpurpose-blog/docs`, `[oeid]` author, and `/docs/development/tinkering/...` examples are PROJECT-BOUND and were dropped in generalization.
+
+### author/data-structure-mental-model-guide.md
+- [x] author/data-structure-mental-model-guide.md:1-58 — COVERED `document-co-author:import-structured-doc` (+ `guides/section-template.md`) — purpose + frontmatter rules + the template-driven "fixed section structure" method are the core of import-structured-doc; the "I need to…" Purpose phrasing is a project stylistic preference (same call as `author/blog-post-structure.md:39-57`).
+- [x] author/data-structure-mental-model-guide.md:59-244 — PROJECT-BOUND — the specific 13-section CS data-structure taxonomy (Core Concepts → Types → Operations → Patterns → Distinctions → Implementation → Mistakes → Comparison → Action Items), ASCII-diagram conventions, and Python-operation skeletons are the content of one blog vertical (CS notes), not a transferable instruction. Generalizing strips exactly the load-bearing structure.
+- [x] author/data-structure-mental-model-guide.md:246-296 — COVERED `document-co-author:manage-ai-metadata` (+ `guides/metadata-schema.md`) — the collapsible "🤖 AI Metadata" block + AI_UPDATE_INSTRUCTIONS pattern is precisely that skill (same call as `author/blog-post-structure.md:90-134`). The data-structure-specific SCAN_SOURCES/DATA_SOURCES (CLRS, LeetCode, Codeforces…) are PROJECT-BOUND.
+- [x] author/data-structure-mental-model-guide.md:298-423 — COVERED `document-co-author:import-structured-doc` — writing style, formatting standards, quality checklist, maintenance instructions (restate the skill's success-criteria/checklist). "LeetCode Integration" (8-12 problems) + integration links to other `/prompts/...` files are PROJECT-BOUND.
+
+### bootstrap/blog-posts.md
+- [x] bootstrap/blog-posts.md:1-52 — COVERED `document-co-author/guides/blog-post-structure.md` — per-directory frontmatter patterns (blog/docs/designs/techniques). Despite the filename, this is a frontmatter-validation prompt. The absolute `/Users/omareid/.../bytesofpurpose-blog` path + per-directory field sets are PROJECT-BOUND.
+- [x] bootstrap/blog-posts.md:53-95 — COVERED `document-co-author:import-structured-doc` — detection criteria + execution steps (scan, analyze existing patterns, fix frontmatter, validate) overlap the import workflow's discover/analyze/generate/validate phases; "DO NOT EDIT CONTENT" is import-structured-doc's content-preservation rule.
+- [x] bootstrap/blog-posts.md:96-176 — COVERED `document-co-author/guides/blog-post-structure.md` + `import-structured-doc` — required-fields-by-directory, content-preservation rules, quality standards, validation checklist, output format (restate the guide + skill). The "Top 3 Questions This Post Should Address" minimal-content stub is a small project convention (PROJECT-BOUND).
+
+### heal/heal-blog-changelog.md
+- [x] heal/heal-blog-changelog.md:1-368 — PROJECT-BOUND — git-history→changelog enrichment bound to the blog's bespoke changelog system: repo-specific scripts (`extract-changelog-commits.js`, `generate-changelog-data.js`), the `bytesofpurpose-blog/changelog/` dir, `NAMING_CONVENTIONS.md`, `changelog-data.json` regeneration, and a hardcoded repo path. The transferable kernel (infer changelog entries from commit history) is already represented conceptually by `architecture-manager` (`scripts/changelog_entry.py` + `iterate-architecture`) and `plan-manager` (`plan-changelog`, coming soon); generalizing the rest strips the load-bearing script/path specifics. Note: the blog repo also has its own `changelog-archive-reminder` hook for this domain.
+
+---
 
 Note: upstream `dd51eaf` independently deleted `refactor/role-refactoring-prompt.md` ("moved to a skill") — agrees with this pass's deletion.

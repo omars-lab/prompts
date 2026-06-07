@@ -33,6 +33,7 @@ A second, finer reconciliation pass walked every **dropped** file paragraph-by-p
 | [prompt-maturity.md](https://github.com/omars-lab/prompts/blob/59e9b39/meta/prompt-maturity.md) | [`evaluate-skill` guides/maturity-dimensions.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/claude-manager/skills/manage-skills/evaluate-skill/guides/maturity-dimensions.md) |
 | [author-prompt-post.md](https://github.com/omars-lab/prompts/blob/59e9b39/author/author-prompt-post.md) | [`document-co-author` guides/blog-post-structure.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/guides/blog-post-structure.md) |
 | [heal/fix-frontmatter.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-frontmatter.md) (lines 165-220 only — the non-conforming frontmatter map) | [`import-structured-doc` guides/section-template.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/skills/import-structured-doc/guides/section-template.md) — "Salvaging legacy / non-conforming frontmatter" (reconciliation pass; rest of the file was project-bound chores) |
+| [heal/fix-readmes.md](https://github.com/omars-lab/prompts/blob/9d1d3b5/heal/fix-readmes.md) (the upstream 209-line folder-README-as-index method, not the original stub) | [`import-structured-doc` guides/readme-index-template.md](https://github.com/omars-lab/claude-plugin-marketplace/blob/main/plugins/document-co-author/skills/import-structured-doc/guides/readme-index-template.md) — "Folder-README-as-Navigation-Index Template" (second reconciliation pass; Docusaurus specifics generalized) |
 
 ## Dropped — not migrated (with reason)
 
@@ -45,7 +46,7 @@ View any dropped file at [`omars-lab/prompts@59e9b39`](https://github.com/omars-
 | [analyze/review-code.md](https://github.com/omars-lab/prompts/blob/59e9b39/analyze/review-code.md) | A single review transcript; `code-quality-manager:poke-holes` is a complete method. |
 | [analyze/deep-dive-into-code.md](https://github.com/omars-lab/prompts/blob/59e9b39/analyze/deep-dive-into-code.md) | Stub — bare internal link. |
 | [heal/fix-frontmatter.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-frontmatter.md) | Mostly one-project frontmatter chore; the one transferable paragraph (non-conforming frontmatter map) was folded into `import-structured-doc` — see the Merged/folded table. |
-| [heal/fix-readme-primary.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-readme-primary.md), [heal/fix-readmes.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-readmes.md) | One-project README chores. |
+| [heal/fix-readme-primary.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/fix-readme-primary.md) | One-project README chore. |
 | [refactor/role-refactoring-prompt.md](https://github.com/omars-lab/prompts/blob/59e9b39/refactor/role-refactoring-prompt.md) | `role-manager:structure-role` supersedes it. |
 | [brainstorm/ask-me.md](https://github.com/omars-lab/prompts/blob/59e9b39/brainstorm/ask-me.md) | `experiment-manager:asking-what-if` already realizes the method. |
 | [heal/heal-noteplan-file-names.md](https://github.com/omars-lab/prompts/blob/59e9b39/heal/heal-noteplan-file-names.md) | `noteplan-manager:manage-filenames` covers it. |
