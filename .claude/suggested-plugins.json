@@ -1,0 +1,11 @@
+{
+  "$schema": "oeid-suggested-plugins/v1",
+  "plugins": [
+    { "plugin": "claude-manager@oeid-claude-plugins", "required": true,
+      "reason": "authoring/evaluating marketplace skills + plugins (manage-skills, manage-plugins)" },
+    { "plugin": "code-quality-manager@oeid-claude-plugins", "required": true,
+      "reason": "Makefile + docs standards for the marketplace tooling" },
+    { "plugin": "discover-oeid-plugins@oeid-claude-plugins", "required": false,
+      "reason": "explore install state + reconcile-plugins governance" }
+  ]
+}

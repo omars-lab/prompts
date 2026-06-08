@@ -1,8 +1,25 @@
 # Design: Plugin Governance (keep each repo's plugins in sync with what it should have)
 
-**Status: DESIGN FOR APPROVAL — do not build until approved.** Part E of
+**Status: BUILT & PUBLISHED (2026-06-07).** Part E of
 [`parallel-seeking-catmull.md`](parallel-seeking-catmull.md). Supersedes Part 3 of
 `REVIEW-AND-GOVERNANCE-PROMPT.md`.
+
+**Build notes (what differed from the design):**
+- `discover-oeid-plugins` shipped at **v1.1.0** (marketplace published via `make sync-remote`).
+- New skill `reconcile-plugins` + shared engine `scripts/compare-plugins.sh` + `guides/comparison-contract.md`.
+- Hook at `~/.claude/hooks/check-suggested-plugins.sh` (+ `--self-test`, fixtures in `~/.claude/hooks/governance-fixtures/`). Self-test green; live run ~0.02–0.08s.
+- **Install-path correction:** the design assumed plugins always live at
+  `~/.claude/plugins/marketplaces/<mp>/plugins/<name>/`. The `oeid-claude-plugins`
+  marketplace is a **directory source**, so its plugins live at the repo's
+  `installLocation`. The engine now resolves each marketplace's root from
+  `known_marketplaces.json` `installLocation` (works for directory- and github-source).
+- **Symlink wrinkle:** `~/.claude/settings.json` is a symlink to
+  `workspace/.claude/settings.json` (git-tracked). Wiring the "global" hook edits the
+  workspace repo's settings — done in the working tree (uncommitted; committing it is the
+  user's call in the workspace repo).
+- Manifests seeded in **blog/work/resume** (all report in-sync) and **prompts** (test;
+  shows the 3 expected not-enabled). Other-repo manifests left untracked (`??`) — not committed.
+- The optional `.governance-cache` (§2) was **not** built — startup is already ~tens of ms, so it wasn't needed.
 
 ## Problem
 
